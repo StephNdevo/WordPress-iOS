@@ -5619,6 +5619,16 @@
 			name = ReaderPostActions;
 			sourceTree = "<group>";
 		};
+		3F967D9C23D659F9001DF8AC /* Reblog */ = {
+			isa = PBXGroup;
+			children = (
+				3F8CB10523A07B17007627BF /* ReaderReblogAction.swift */,
+				3F5B3EB023A851480060FF1F /* ReaderReblogFormatter.swift */,
+				3F5B3EAE23A851330060FF1F /* ReaderReblogPresenter.swift */,
+			);
+			path = Reblog;
+			sourceTree = "<group>";
+		};
 		400A2C8D2217AAA1000A8A59 /* Time-based data */ = {
 			isa = PBXGroup;
 			children = (
@@ -8979,6 +8989,7 @@
 		D816043E209C1AD300ABAFFA /* ReaderPostActions */ = {
 			isa = PBXGroup;
 			children = (
+				3F967D9C23D659F9001DF8AC /* Reblog */,
 				D8212CB820AA77AD008E8AE8 /* ReaderActionHelpers.swift */,
 				D8212CC220AA7F57008E8AE8 /* ReaderBlockSiteAction.swift */,
 				D8212CC420AA83F9008E8AE8 /* ReaderCommentAction.swift */,
@@ -8986,9 +8997,6 @@
 				D8212CC620AA85C1008E8AE8 /* ReaderHeaderAction.swift */,
 				D8212CB020AA64E1008E8AE8 /* ReaderLikeAction.swift */,
 				D8212CC820AA87E5008E8AE8 /* ReaderMenuAction.swift */,
-				3F8CB10523A07B17007627BF /* ReaderReblogAction.swift */,
-				3F5B3EB023A851480060FF1F /* ReaderReblogFormatter.swift */,
-				3F5B3EAE23A851330060FF1F /* ReaderReblogPresenter.swift */,
 				175A650B20B6F7280023E71B /* ReaderSaveForLater+Analytics.swift */,
 				D8160441209C1B0F00ABAFFA /* ReaderSaveForLaterAction.swift */,
 				D8212CB620AA7703008E8AE8 /* ReaderShareAction.swift */,

@@ -101,15 +101,20 @@ private extension ReaderReblogPresenter {
                                blog: Blog,
                                origin: UIViewController) {
 
-        // get post and put content in it
         let post = postService.createDraftPost(for: blog)
-        post.prepareForReblog(with: readerPost)
-        // instantiate & configure editor
-        let editor = EditPostViewController(post: post, loadAutosaveRevision: false)
-        editor.modalPresentationStyle = .fullScreen
-        editor.postIsReblogged = true
-        // present
-        origin.present(editor, animated: false)
+        post.prepareForReblog(with: readerPost) {
+            
+            let editor = EditPostViewController(post: post, loadAutosaveRevision: false)
+            editor.modalPresentationStyle = .fullScreen
+            editor.postIsReblogged = true
+            
+            if let featuredImage = post.featuredImage {
+                editor.insertedMedia = [featuredImage]
+            }
+            
+            origin.present(editor, animated: false)
+        }
+
     }
 }
 
@@ -144,7 +149,12 @@ private extension ReaderReblogPresenter {
 // MARK: - Post updates
 private extension Post {
     /// Formats the new Post content for reblogging, using an existing ReaderPost
-    func prepareForReblog(with readerPost: ReaderPost) {
+    func prepareForReblog(with readerPost: ReaderPost, completion: @escaping () -> ()) {
+        guard let context = self.managedObjectContext else {
+            return
+        }
+        let mediaService = MediaService(managedObjectContext: context)
+        
         // update the post
         update(with: readerPost)
         // initialize the content
@@ -158,18 +168,31 @@ private extension Post {
             }
             content = self.blog.isGutenbergEnabled ? ReaderReblogFormatter.gutenbergQuote(text: summary, citation: citation) :
                 ReaderReblogFormatter.aztecQuote(text: summary, citation: citation)
+
+            content = self.blog.isGutenbergEnabled ? "<!-- wp:paragraph -->\n<p></p>\n<!-- /wp:paragraph -->" + content : "<p></p>" + content
         }
         // insert the image on top of the content
-        if let image = readerPost.featuredImage, image.isValidURL() {
-            content = self.blog.isGutenbergEnabled ? ReaderReblogFormatter.gutenbergImage(image: image) + content :
-                ReaderReblogFormatter.aztecImage(image: image) + content
+        if let image = readerPost.featuredImage, image.isValidURL(), let url = URL(string: image) {
+
+            ImageDownloader.shared.downloadImage(at: url) { image, error in
+                guard let image = image else {
+                    return
+                }
+                mediaService.createMedia(with: image, blog: self.blog, post: self, progress: nil, thumbnailCallback: nil) { media, error in
+                    guard let media = media else {
+                        return
+                    }
+                    self.featuredImage = media
+
+                    completion()
+                }
+            }
         }
         self.content = content
     }
 
     func update(with readerPost: ReaderPost) {
         self.postTitle = readerPost.titleForDisplay()
-        self.pathForDisplayImage = readerPost.featuredImage
         self.permaLink = readerPost.permaLink
     }
 }

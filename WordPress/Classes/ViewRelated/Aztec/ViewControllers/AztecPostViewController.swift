@@ -304,35 +304,6 @@ class AztecPostViewController: UIViewController, PostEditor {
         return v
     }()
 
-    /// Active Editor's Mode
-    ///
-    /*
-    fileprivate(set) var mode = EditMode.richText {
-        willSet {
-            switch mode {
-            case .html:
-                setHTML(getHTML(), for: .richText)
-            case .richText:
-                setHTML(getHTML(), for: .html)
-            }
-        }
-
-        didSet {
-            switch mode {
-            case .html:
-                htmlTextView.becomeFirstResponder()
-            case .richText:
-                richTextView.becomeFirstResponder()
-            }
-
-            updateFormatBar()
-
-            refreshPlaceholderVisibility()
-            refreshTitlePosition()
-        }
-    }*/
-
-
     /// Post being currently edited
     ///
     var post: AbstractPost {
@@ -812,31 +783,9 @@ class AztecPostViewController: UIViewController, PostEditor {
             processMediaAttachments()
         }
     }
-/*
-    private func setHTML(_ html: String, for mode: EditMode) {
-        switch mode {
-        case .html:
-            htmlTextView.text = html
-        case .richText:
-            richTextView.setHTML(html)
-
-            processMediaAttachments()
-        }
-    }*/
 
     func getHTML() -> String {
         return editorView.getHTML()
-/*
-        let html: String
-
-        switch mode {
-        case .html:
-            html = htmlTextView.text
-        case .richText:
-            html = richTextView.getHTML()
-        }
-
-        return html*/
     }
 
     func reloadEditorContents() {
