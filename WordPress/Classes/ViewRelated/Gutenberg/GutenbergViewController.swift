@@ -94,14 +94,19 @@ class GutenbergViewController: UIViewController, PostEditor {
 
     private func insertPrePopulatedMedia() {
         for media in mediaToInsertOnPost {
-            guard
-                media.mediaType == .image, // just images for now
-                let mediaID = media.mediaID?.int32Value,
-                let mediaURLString = media.remoteURL,
-                let mediaURL = URL(string: mediaURLString) else {
-                    continue
+            guard media.mediaType == .image else { // just images for now
+                continue
             }
-            gutenberg.appendMedia(id: mediaID, url: mediaURL, type: .image)
+            if media.hasRemote,
+               let mediaID = media.mediaID?.int32Value,
+               let mediaURLString = media.remoteURL,
+               let mediaURL = URL(string: mediaURLString)
+            {
+                gutenberg.appendMedia(id: mediaID, url: mediaURL, type: .image)
+            } else if let mediaURL = media.absoluteLocalURL {
+                let mediaID = Int32(0)
+                gutenberg.appendMedia(id: mediaID, url: mediaURL, type: .image)
+            }
         }
         mediaToInsertOnPost = []
     }
