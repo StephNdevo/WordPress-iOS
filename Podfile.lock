@@ -284,6 +284,8 @@ PODS:
   - React-jsinspector (0.61.5)
   - react-native-keyboard-aware-scroll-view (0.8.7):
     - React
+  - react-native-linear-gradient (2.5.6):
+    - React
   - react-native-safe-area (0.5.1):
     - React
   - react-native-slider (2.0.7):
@@ -443,6 +445,7 @@ DEPENDENCIES:
   - React-jsiexecutor (from `https://raw.githubusercontent.com/wordpress-mobile/gutenberg-mobile/1ee8ff443efe8af12cfc1c8afff884f75f0c42a4/react-native-gutenberg-bridge/third-party-podspecs/React-jsiexecutor.podspec.json`)
   - React-jsinspector (from `https://raw.githubusercontent.com/wordpress-mobile/gutenberg-mobile/1ee8ff443efe8af12cfc1c8afff884f75f0c42a4/react-native-gutenberg-bridge/third-party-podspecs/React-jsinspector.podspec.json`)
   - react-native-keyboard-aware-scroll-view (from `https://raw.githubusercontent.com/wordpress-mobile/gutenberg-mobile/1ee8ff443efe8af12cfc1c8afff884f75f0c42a4/react-native-gutenberg-bridge/third-party-podspecs/react-native-keyboard-aware-scroll-view.podspec.json`)
+  - react-native-linear-gradient (from `https://raw.githubusercontent.com/wordpress-mobile/gutenberg-mobile/1ee8ff443efe8af12cfc1c8afff884f75f0c42a4/react-native-gutenberg-bridge/third-party-podspecs/react-native-linear-gradient.podspec.json`)
   - react-native-safe-area (from `https://raw.githubusercontent.com/wordpress-mobile/gutenberg-mobile/1ee8ff443efe8af12cfc1c8afff884f75f0c42a4/react-native-gutenberg-bridge/third-party-podspecs/react-native-safe-area.podspec.json`)
   - react-native-slider (from `https://raw.githubusercontent.com/wordpress-mobile/gutenberg-mobile/1ee8ff443efe8af12cfc1c8afff884f75f0c42a4/react-native-gutenberg-bridge/third-party-podspecs/react-native-slider.podspec.json`)
   - react-native-video (from `https://raw.githubusercontent.com/wordpress-mobile/gutenberg-mobile/1ee8ff443efe8af12cfc1c8afff884f75f0c42a4/react-native-gutenberg-bridge/third-party-podspecs/react-native-video.podspec.json`)
@@ -554,6 +557,8 @@ EXTERNAL SOURCES:
     :podspec: https://raw.githubusercontent.com/wordpress-mobile/gutenberg-mobile/1ee8ff443efe8af12cfc1c8afff884f75f0c42a4/react-native-gutenberg-bridge/third-party-podspecs/React-jsinspector.podspec.json
   react-native-keyboard-aware-scroll-view:
     :podspec: https://raw.githubusercontent.com/wordpress-mobile/gutenberg-mobile/1ee8ff443efe8af12cfc1c8afff884f75f0c42a4/react-native-gutenberg-bridge/third-party-podspecs/react-native-keyboard-aware-scroll-view.podspec.json
+  react-native-linear-gradient:
+    :podspec: https://raw.githubusercontent.com/wordpress-mobile/gutenberg-mobile/1ee8ff443efe8af12cfc1c8afff884f75f0c42a4/react-native-gutenberg-bridge/third-party-podspecs/react-native-linear-gradient.podspec.json
   react-native-safe-area:
     :podspec: https://raw.githubusercontent.com/wordpress-mobile/gutenberg-mobile/1ee8ff443efe8af12cfc1c8afff884f75f0c42a4/react-native-gutenberg-bridge/third-party-podspecs/react-native-safe-area.podspec.json
   react-native-slider:
@@ -649,6 +654,7 @@ SPEC CHECKSUMS:
   React-jsiexecutor: 9dfdcd0db23042623894dcbc02d61a772da8e3c1
   React-jsinspector: 89927b9ec6d75759882949d2043ba704565edaec
   react-native-keyboard-aware-scroll-view: 01c4b2303c4ef1c49c4d239c9c5856f0393104df
+  react-native-linear-gradient: 258ba8c61848324b1f2019bed5f460e6396137b7
   react-native-safe-area: e8230b0017d76c00de6b01e2412dcf86b127c6a3
   react-native-slider: b36527edad24d49d9f3b53f3078334f45558f97b
   react-native-video: 9de661e89386bb7ab78cc68e61a146cbdf5ad4ad
@@ -683,6 +689,6 @@ SPEC CHECKSUMS:
   ZendeskSDK: 99679d8420a6d862773e2ddef0ebcc51b282317d
   ZIPFoundation: 89df685c971926b0323087952320bdfee9f0b6ef
 
-PODFILE CHECKSUM: 4fdb8d2c91b220fa40b2a71fcdb471a7c8551497
+PODFILE CHECKSUM: 3ab02315e161aacf3a68bc7334b76485cefbdc81
 
 COCOAPODS: 1.8.4
