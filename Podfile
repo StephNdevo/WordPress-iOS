@@ -11,14 +11,14 @@ workspace 'WordPress.xcworkspace'
 ##
 def wordpress_shared
     ## for production:
-    pod 'WordPressShared', '1.8.11'
+    pod 'WordPressShared', '1.8.12'
 
     ## for development:
     # pod 'WordPressShared', :path => '../WordPress-iOS-Shared'
 
     ## while PR is in review:
     # pod 'WordPressShared', :git => 'https://github.com/wordpress-mobile/WordPress-iOS-Shared.git', :branch => ''
-    # pod 'WordPressShared', :git => 'https://github.com/wordpress-mobile/WordPress-iOS-Shared.git', :commit  => ''
+    # pod 'WordPressShared', :git => 'https://github.com/wordpress-mobile/WordPress-iOS-Shared.git', :commit  => '4be5415'
 end
 
 def aztec
@@ -29,12 +29,12 @@ def aztec
     ## pod 'WordPress-Editor-iOS', :git => 'https://github.com/wordpress-mobile/AztecEditor-iOS.git', :commit => 'ba8524aba1332550efb05cad583a85ed3511beb5'
     ## pod 'WordPress-Editor-iOS', :git => 'https://github.com/wordpress-mobile/AztecEditor-iOS.git', :tag => '1.5.0.beta.1'
     ## pod 'WordPress-Editor-iOS', :path => '../AztecEditor-iOS'
-    pod 'WordPress-Editor-iOS', '~> 1.14.0'
+    pod 'WordPress-Editor-iOS', '~> 1.15.0'
 end
 
 def wordpress_ui
     ## for production:
-    pod 'WordPressUI', '~> 1.5.1-beta'
+    pod 'WordPressUI', '~> 1.5.1'
 
     ## for development:
     #pod 'WordPressUI', :path => '../WordPressUI-iOS'
@@ -66,7 +66,7 @@ end
 def shared_test_pods
     pod 'OHHTTPStubs', '6.1.0'
     pod 'OHHTTPStubs/Swift', '6.1.0'
-    pod 'OCMock', '~> 3.4'
+    pod 'OCMock', '3.4.3'
 end
 
 def shared_with_extension_pods
@@ -89,9 +89,14 @@ end
 
 def gutenberg_dependencies(options)
     dependencies = [
+        'FBReactNativeSpec',
+        'FBLazyVector',
         'React',
+        'ReactCommon',
+        'RCTRequired',
+        'RCTTypeSafety',
         'React-Core',
-        'React-DevSupport',
+        'React-CoreModules',
         'React-RCTActionSheet',
         'React-RCTAnimation',
         'React-RCTBlob',
@@ -100,13 +105,12 @@ def gutenberg_dependencies(options)
         'React-RCTNetwork',
         'React-RCTSettings',
         'React-RCTText',
-        'React-RCTVibration',
-        'React-RCTWebSocket',
+        'React-RCTVibration',        
         'React-cxxreact',
         'React-jsinspector',
         'React-jsi',
         'React-jsiexecutor',
-        'yoga',
+        'Yoga',
         'Folly',
         'glog',
         'react-native-keyboard-aware-scroll-view',
@@ -114,8 +118,7 @@ def gutenberg_dependencies(options)
         'react-native-video',
         'RNSVG',
         'ReactNativeDarkMode',
-        'react-native-slider',
-        'react-native-linear-gradient'
+        'react-native-slider'
     ]
     if options[:path]
         podspec_prefix = options[:path]
@@ -142,7 +145,7 @@ target 'WordPress' do
     ## Gutenberg (React Native)
     ## =====================
     ##
-    gutenberg :commit => 'a5f77014f5ef0b9189dc9ca1b7e6be8aed5cda3a'
+    gutenberg :commit => '1ee8ff443efe8af12cfc1c8afff884f75f0c42a4'
 
     ## Third party libraries
     ## =====================
@@ -336,8 +339,9 @@ end
 ## ===================
 ##
 def wordpress_mocks
-  pod 'WordPressMocks', '~> 0.0.7'
+  pod 'WordPressMocks', '~> 0.0.8'
   # pod 'WordPressMocks', :git => 'https://github.com/wordpress-mobile/WordPressMocks.git', :commit => ''
+  # pod 'WordPressMocks', :git => 'https://github.com/wordpress-mobile/WordPressMocks.git', :branch => 'add/screenshot-mocks'
   # pod 'WordPressMocks', :path => '../WordPressMocks'
 end
 
