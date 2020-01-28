@@ -118,7 +118,6 @@ def gutenberg_dependencies(options)
         'react-native-video',
         'RNSVG',
         'ReactNativeDarkMode',
-        'react-native-slider',
         'react-native-linear-gradient'
     ]
     if options[:path]
